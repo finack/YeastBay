@@ -1,16 +1,21 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    asdf (0.5.0)
+      rack (~> 1.2.1)
     compass (0.10.6)
       haml (>= 3.0.4)
     cri (1.0.1)
     haml (3.0.25)
     nanoc3 (3.1.6)
       cri (>= 1.0.0)
+    rack (1.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  asdf
   compass
   nanoc3
+  rack
