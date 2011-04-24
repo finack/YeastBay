@@ -31,6 +31,8 @@ compile '/stylesheets/style' do
   filter :sass, Compass.sass_engine_options
 end
 
+compile '/javascript/*/' do
+end
 
 #route '/stylesheets/style' do
 #   item.identifier.chop + '.css'

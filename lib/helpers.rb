@@ -22,6 +22,8 @@ def route_path(item)
     outext = '' # remove 2nd extension
   elsif extname.match /\.(scss|sass)/
     outext = '.css'
+  elsif extname == '.js'
+    outext = '.js'
   else
     outext = '.html'
   end
