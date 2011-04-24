@@ -20,7 +20,7 @@ def route_path(item)
   outext = '.haml'
   if url.match(/(\.[a-zA-Z0-9]+){2}$/) # => *.html.erb, *.html.md ...
     outext = '' # remove 2nd extension
-  elsif extname == ".sass"
+  elsif extname.match /\.(scss|sass)/
     outext = '.css'
   else
     outext = '.html'
