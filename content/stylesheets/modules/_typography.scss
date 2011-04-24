@@ -1,0 +1,61 @@
+$base_font_family: unquote("'Trebuchet MS', 'Bitstream Vera Sans', Verdana, sans-serif") !default;
+$fixed_font_family: unquote("Monaco, 'Andale Mono', 'Lucida Console', monospace") !default;
+$base_font_size: 95% !default;
+
+/*@mixin header-text      { font-weight: normal; color: $header-color; }*/
+@mixin quiet            { color: $quiet-color; }
+@mixin loud             { color: $loud-color; }
+
+@mixin fancy-font {
+  font-family: unquote("'IM Fell Great Primer', arial, serif");
+  font-size: 300%;
+}
+
+@mixin base-fonts {
+  font-family: $base_font_family;
+  font-size: $base_font_size;
+  color: $font-color;
+  line-height: 1.2; }
+
+@mixin basic-typography {
+  font-family: $base_font_family;
+  color: $font-color;
+  strong          { font-weight: bold; color: $loud-color; }
+  em              { font-style: italic; }
+  h1              { font-size: 210%; font-weight: bold; margin-top: 10px; margin-bottom: 0.5em; }
+  h2              { font-size: 100%; color: $font-color; margin-top: 0.5em; margin-bottom: 0.75em; text-transform: uppercase; letter-spacing: 2px; }
+  h3              { font-size: 160%; margin-top: 1em; margin-bottom: 0.5em; small { color: $font-color; font-weight: normal; font-size: 90%; } }
+  h4              { margin-top: 1em; font-weight: bold; font-size: 110%; margin-bottom: 0.5em; }
+  p               { margin-top: 0.5em; margin-bottom: 1em; }
+  ul              { padding-left: 2.25em; }
+  tt, code        { font-size: 90%; font-family: $fixed_font_family; background: #f0f0f0; padding: 2px 4px; @include round-corners; }
+  pre             { background: #f0f0f0; font-family: $fixed_font_family; margin: 1em 0; padding: 20px; @include round-corners(10px);
+    code          { background: none; font-size: 100%; display: block; } }
+  p               { margin-top: 0.5em; margin-bottom: 1em;
+    img.left      { @include float-left;  margin: 1.5em 1.5em 1.5em 0; padding: 0; }
+    img.right     { @include float-right; margin: 1.5em 0 1.5em 1.5em; padding: 0; } }
+  /*a               { text-decoration: underline; @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color); }*/
+  blockquote      { margin: 1.5em; color: $alt_text_color; font-style: italic; }
+  em              { font-style: italic; }
+  dfn             { font-style: italic; font-weight: bold; }
+  sup, sub        { line-height: 0; }
+  abbr, acronym   { border-bottom: 1px dotted #666666; }
+  address         { margin: 0 0 1.5em; font-style: italic; }
+  del             { color: $alt_text_color; }
+  li ul, li ol    { margin: 0; }
+  ul, ol          { margin: 0 1.5em 1.5em 0; padding-left: 3.333em; }
+  ul              { list-style-type: disc; }
+  ol              { list-style-type: decimal; }
+  dl              { margin: 0 0 1.5em 0;
+    dt              { font-weight: bold; } }
+  dd              { margin-left: 1.5em; }
+  table           { margin-bottom: 1.4em; width: 100%; }
+  th              { font-weight: bold; }
+  thead th        { background: $blueprint-table-header-color; }
+  th, td, caption { padding: 4px 10px 4px 5px; }
+  tr.even td      { background: $blueprint-table-stripe-color; }
+  tfoot           { font-style: italic; }
+  caption         { background: $background-color; }
+  .quiet          { @include quiet; }
+  .loud           { @include loud; }
+}

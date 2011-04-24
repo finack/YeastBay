@@ -1,0 +1,20 @@
+$blueprint-grid-columns: 24;
+$blueprint-container-size: 950px;
+$blueprint-grid-margin: 10px;
+
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+$twothirds: ceil(2 * $blueprint-grid-columns / 3);
+$third: floor($blueprint-grid-columns / 3);
+$center: $blueprint-grid-columns / 2;
+
+body {
+  @include base-fonts;
+  @include basic-typography;
+  @include basic-links;
+  @include blueprint-debug;
+  @include container;
+
+  background-color: $background-color;
+  color: $font-color;
+}
