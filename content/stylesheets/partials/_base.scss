@@ -18,3 +18,20 @@ body {
   background-color: $background-color;
   color: $font-color;
 }
+
+.center {
+  text-align: center;
+}
+
+#reallybig {
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 18em;
+  line-height: normal;
+  margin-bottom: -50px;
+}
+
+#notsobig {
+  font-family: 'IM Fell DW Pica', serif;
+  font-variant:small-caps;
+  font-size: 5em;
+}
