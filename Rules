@@ -34,6 +34,9 @@ end
 compile '/assets/javascript/*/' do
 end
 
+compile '/favicon' do
+end
+
 #route '/stylesheets/style' do
 #   item.identifier.chop + '.css'
 #end
