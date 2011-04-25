@@ -1,3 +1,7 @@
+include Nanoc3::Helpers::XMLSitemap
+include Nanoc3::Helpers::Rendering
+
+
 ## Stolen from https://github.com/unthinkingly/unthinkingly-blog/blob/master/lib/helpers.rb
 # Hyphens are converted to sub-directories in the output folder.
 #

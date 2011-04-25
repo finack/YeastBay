@@ -61,3 +61,9 @@ watcher:
 deploy:
   default:
     dst: yeastbay@w00t.portalpotty.net:~/public_html
+
+base_url: http://yeastbay.com
+
+google_analytics:
+  domain: yeastbay.com
+  site_id: UA-18373596-1
