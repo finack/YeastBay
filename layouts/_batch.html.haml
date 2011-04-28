@@ -1,2 +1,12 @@
+#stats
+  %ol
+    = render('batch/_stat_item', :item => @item, :stat => :og, :tip => 'Original Gravity' )
+    = render('batch/_stat_item', :item => @item, :stat => :fg, :tip => 'Final Gravity' )
+    = render('batch/_stat_item', :item => @item, :stat => :abv, :tip => 'Alcohol By Volume' )
+    = render('batch/_stat_item', :item => @item, :stat => :srm, :tip => 'Color of Beer in SRM' )
+    = render('batch/_stat_item', :item => @item, :stat => :ferm_temp, :tip => 'Primary temperature of fermentation' )
+#fermentables
+  %ol
+    = render('batch/_fermentables', :item => @item)
 =content
 =render "bjcp/_#{@item[:bjcp]}"
