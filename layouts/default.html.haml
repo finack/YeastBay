@@ -1,10 +1,18 @@
 ---
 ---
+:ruby
+  # needed since some content render <pre> blocks
+  content = find_and_preserve(yield)
+
 !!!
 %html
   %head
-    = render '_header'
+    = render '_head'
   %body
-    = yield
+    = render "_header"
+    - if @item[:kind] == 'batch'
+      = render('_batch', :item => @item, :content => content)
+    - else
+      = content
     %footer
       = render '_ganalytics'

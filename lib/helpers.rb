@@ -1,6 +1,16 @@
 include Nanoc3::Helpers::XMLSitemap
 include Nanoc3::Helpers::Rendering
 
+#= batch[:og]
+def batch(id)
+  if @item[:batch][id]
+    results = @item[:batch][id]
+  else
+    results = ''
+  end
+  results
+end
+
 
 ## Stolen from https://github.com/unthinkingly/unthinkingly-blog/blob/master/lib/helpers.rb
 # Hyphens are converted to sub-directories in the output folder.
