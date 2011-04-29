@@ -8,14 +8,18 @@ $twothirds: ceil(2 * $blueprint-grid-columns / 3);
 $third: floor($blueprint-grid-columns / 3);
 $center: $blueprint-grid-columns / 2;
 
-html, body, .container {height: 100%;}
+html, body, #wrap {height: 100%;}
 
 body {
   @include base-fonts;
   @include basic-typography;
   @include basic-links;
   @include container;
-  
+  @include clearfix;
+  >#wrap {
+    height: auto;
+    min-height: 100%;
+  }
   background-color: $background-color;
   color: $font-color;
 }
@@ -42,4 +46,8 @@ body {
 
 .statlegend {
   
+}
+
+header nav #menu {
+  text-align: right;
 }

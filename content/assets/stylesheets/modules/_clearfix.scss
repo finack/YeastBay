@@ -6,7 +6,16 @@
 // http://www.quirksmode.org/blog/archives/2005/03/clearing_floats.html
 @mixin clearfix {
   overflow: hidden;
-  @include has-layout; }
+  @include has-layout;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+ }
 
 // Extends the element to enclose any floats it contains.
 // This older "Easy Clearing" method has the advantage of allowing positioned elements to hang outside the bounds of the container, at the expense of more tricky CSS.

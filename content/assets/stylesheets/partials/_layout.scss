@@ -1,0 +1,24 @@
+body {
+  header#page {
+    @include column($blueprint-grid-columns, true);
+    nav {
+      @include column($blueprint-grid-columns, true);
+      #home {
+        @include column(4);
+      }
+      #menu {
+        @include column($blueprint-grid-columns - 4, true);
+      }
+    } // end nav
+  } // end header
+  article#page {
+    padding-bottom: 20px;
+  }
+  footer#page {
+    @include column($blueprint-grid-columns, true);
+    position: relative;
+    margin-top: -20px;
+    height: 20px;
+    clear: both;
+  }
+}

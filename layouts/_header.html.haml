@@ -1,6 +1,6 @@
-%header#page
-  %nav
-    #home Yeast Bay
-    #menu
-      - if @config[:development] == true
-        #togglegrid Show Grid | 
+%nav
+  #home Yeast Bay
+  #menu
+    - if @config[:development] == true
+      %a#togglegrid{ :href => '#' } Show Grid |
+    = link_to 'Beer', '/batches '
