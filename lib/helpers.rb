@@ -2,44 +2,32 @@ include Nanoc3::Helpers::XMLSitemap
 include Nanoc3::Helpers::Rendering
 include Nanoc3::Helpers::LinkTo
 
-#= batch[:og]
-def batch(id)
-  if @item[:batch][id]
-    results = @item[:batch][id]
-  else
-    results = ''
-  end
-  results
-end
-
 def select_filter(item)
   ext = item[:extension].nil? ? nil : item[:extension].split('.').last
-
-  if ext == 'erb'
-    filter :erb
-  elsif ext == 'haml' || ext.nil?
-    filter :haml
-  elsif ext == 'md' || ext == 'markdown'
-    filter :erb
-    filter :rdiscount
-  elsif ext == 'html'
-  else
-    raise "Filter is not configured for #{item.identifier} in #{__FILE__}"
+  case ext
+    when "erb"
+      filter :erb
+    when "haml", nil?
+      filter :haml
+    when "md", "markdown"
+      filter :erb
+      filter :rdiscount
+    when "html"
+    else
+      raise "Filter is not configured for #{item.identifier} in #{__FILE__}"
   end
 end
 
-## Remove the .html.haml from an item
+## Takes an item and turns it into a dir w/ index.html
 def route_naked(item)
   url = item[:content_filename].gsub(/^content/, '')
+  return nil if url.match(/index\.html/)
   ext = "." + item[:extension]
   if ext.match(/(\.[a-zA-Z0-9]+){2}$/)
     url.gsub!(ext, '/index.html')
   end
-  
-  puts "\n!!! #{url}\n"
   url
 end
-
 
 ## Stolen from https://github.com/unthinkingly/unthinkingly-blog/blob/master/lib/helpers.rb
 # Hyphens are converted to sub-directories in the output folder.

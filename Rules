@@ -18,14 +18,10 @@ compile '/assets/stylesheets/style' do
   filter :sass, Compass.sass_engine_options
 end
 
-### This is how you can compile to many files using reps
-compile /(\d+\.html)/, :rep => :naked do
-  puts item[:content_filename].gsub(/^content/, '')
+compile /batches\/\d+.*?/, :rep => :naked do
   select_filter(item)
   layout 'default' unless item[:layout] == "none"
 end
-
-
 
 compile '*' do
   select_filter(item)
@@ -38,11 +34,8 @@ end
 
 route '*' do
   if item.binary?
-    # /foo/ -> /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # /foo/ -> /foo/index.html
-    # item.identifier + 'index.html'
     route_path(item)
   end
 end
