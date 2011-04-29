@@ -1,19 +1,26 @@
+GIT
+  remote: https://github.com/ddfreyne/nanoc.git
+  revision: 2ebfcac25fbe7cfddc08c87ca6a35b109bdb3543
+  specs:
+    nanoc3 (3.2.0a3)
+      cri (>= 1.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
-    asdf (0.5.0)
-      rack (~> 1.2.1)
+    adsf (1.0.1)
+      rack (>= 1.0.0)
     builder (3.0.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     cri (1.0.1)
+    fssm (0.2.7)
     haml (3.0.25)
     json (1.5.1)
-    nanoc3 (3.1.6)
-      cri (>= 1.0.0)
     nokogiri (1.4.4)
     rack (1.2.2)
     rake (0.8.7)
+    rb-fsevent (0.4.0)
     w3c_validators (1.1.1)
       nokogiri
 
@@ -21,11 +28,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  asdf
+  adsf
   builder
   compass
+  fssm
   json
-  nanoc3
+  nanoc3!
   rack
   rake
+  rb-fsevent
   w3c_validators
