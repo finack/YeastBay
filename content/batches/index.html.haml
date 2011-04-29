@@ -1,0 +1,6 @@
+---
+title: Our Batches
+---
+%ol
+  - sorted_batches.each do |batch|
+    =render('batch/_list', :item => batch, :is_list => true)

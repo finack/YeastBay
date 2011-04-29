@@ -5,16 +5,6 @@ require 'compass'
 
 Compass.add_project_configuration('compass.rb')
 
-# A few helpful tips about the Rules file:
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
 compile '/assets/stylesheets/modules/*/' do
   # don’t compile modules
 end
@@ -39,10 +29,6 @@ end
 
 compile '/assets/images/*/' do
 end
-
-#route '/stylesheets/style' do
-#   item.identifier.chop + '.css'
-#end
 
 compile '*' do
   # item[:extension] returns 'html.erb' for multi-dotted filename

@@ -12,6 +12,7 @@ body {
     } // end nav
   } // end header
   article#page {
+    @include column($blueprint-grid-columns, true);
     padding-bottom: 20px;
   }
   footer#page {
