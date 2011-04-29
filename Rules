@@ -37,6 +37,9 @@ end
 compile '/favicon' do
 end
 
+compile '/assets/images/*/' do
+end
+
 #route '/stylesheets/style' do
 #   item.identifier.chop + '.css'
 #end

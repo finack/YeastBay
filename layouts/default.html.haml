@@ -9,10 +9,11 @@
   %head
     = render '_head'
   %body
-    = render "_header"
-    - if @item[:kind] == 'batch'
-      = render('_batch', :item => @item, :content => content)
-    - else
-      = content
-    %footer
-      = render '_ganalytics'
+    .container
+      = render "_header"
+      - if @item[:kind] == 'batch'
+        = render('_batch', :item => @item, :content => content)
+      - else
+        = content
+      %footer
+        = render '_ganalytics'

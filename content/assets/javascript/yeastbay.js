@@ -1,6 +1,24 @@
+// Setup the com.yeastbay namespace
+var com;
+if (!com)
+  com = {};
+else if (typeof com != "object")
+  throw new Error("com already exists and is not an object");
+if (!com.yeastbay)
+  com.yeastbay = {};
+else if (typeof com.yeastbay != "object")
+  throw new Error("com.sheshin already exists and is not an object");
 
+com.yeastbay.Compass = {
+  ToggleGrid: function(div){
+    $(div).click( function(){
+      $('.container').toggleClass('showgrid');
+      console.log('Toggling Compass Grid');
+    });
+  }
+};
 
-
+// jQuery Extensions
 $.fn.extend({
   vAlignMin: function(min) {
     var oh = $(this).outerHeight();

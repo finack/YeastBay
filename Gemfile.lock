@@ -13,6 +13,7 @@ GEM
       cri (>= 1.0.0)
     nokogiri (1.4.4)
     rack (1.2.2)
+    rake (0.8.7)
     w3c_validators (1.1.1)
       nokogiri
 
@@ -26,4 +27,5 @@ DEPENDENCIES
   json
   nanoc3
   rack
+  rake
   w3c_validators

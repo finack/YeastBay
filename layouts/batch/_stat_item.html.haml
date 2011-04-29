@@ -1,4 +1,4 @@
-%li
-  %div{:id => stat, :class => 'tooltip', :display_text => tip}
-    =stat
-    =item[:batch][stat]
+.tooltip.statlegend{:id => stat, :display_text => tip}
+  =stat
+#statentry
+  =item[:batch][stat]

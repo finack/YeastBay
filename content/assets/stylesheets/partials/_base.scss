@@ -8,15 +8,20 @@ $twothirds: ceil(2 * $blueprint-grid-columns / 3);
 $third: floor($blueprint-grid-columns / 3);
 $center: $blueprint-grid-columns / 2;
 
+html, body, .container {height: 100%;}
+
 body {
   @include base-fonts;
   @include basic-typography;
   @include basic-links;
-  @include blueprint-debug;
   @include container;
-
+  
   background-color: $background-color;
   color: $font-color;
+}
+
+.showgrid {
+  background: image_url('/assets/images/grid.png');
 }
 
 .center {
@@ -33,4 +38,8 @@ body {
 #notsobig {
   font-family: 'IM Fell DW Pica', serif;
   font-size: 4em;
+}
+
+.statlegend {
+  
 }
