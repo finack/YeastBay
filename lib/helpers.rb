@@ -12,6 +12,34 @@ def batch(id)
   results
 end
 
+def select_filter(item)
+  ext = item[:extension].nil? ? nil : item[:extension].split('.').last
+
+  if ext == 'erb'
+    filter :erb
+  elsif ext == 'haml' || ext.nil?
+    filter :haml
+  elsif ext == 'md' || ext == 'markdown'
+    filter :erb
+    filter :rdiscount
+  elsif ext == 'html'
+  else
+    raise "Filter is not configured for #{item.identifier} in #{__FILE__}"
+  end
+end
+
+## Remove the .html.haml from an item
+def route_naked(item)
+  url = item[:content_filename].gsub(/^content/, '')
+  ext = "." + item[:extension]
+  if ext.match(/(\.[a-zA-Z0-9]+){2}$/)
+    url.gsub!(ext, '/index.html')
+  end
+  
+  puts "\n!!! #{url}\n"
+  url
+end
+
 
 ## Stolen from https://github.com/unthinkingly/unthinkingly-blog/blob/master/lib/helpers.rb
 # Hyphens are converted to sub-directories in the output folder.

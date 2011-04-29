@@ -18,44 +18,22 @@ compile '/assets/stylesheets/style' do
   filter :sass, Compass.sass_engine_options
 end
 
-#### This is how you can compile to many files using reps
-#compile '/batches/29/', :rep => :full do
-#  filter :haml
-#  puts 'bar'
-#  puts item.path
-#end
-#
-#
-#compile '/batches/29/' do
-#  filter :haml
-#  puts ':default'
-#  puts item.path
-#end
-#
-#route '*', :rep => :full do
-#  new file name here
-#end
+### This is how you can compile to many files using reps
+compile /(\d+\.html)/, :rep => :naked do
+  puts item[:content_filename].gsub(/^content/, '')
+  select_filter(item)
+  layout 'default' unless item[:layout] == "none"
+end
+
+
 
 compile '*' do
-  # item[:extension] returns 'html.erb' for multi-dotted filename
-  ext = item[:extension].nil? ? nil : item[:extension].split('.').last
-
-  if ext == 'erb'
-    filter :erb
-  elsif ext == 'haml' || ext.nil?
-    filter :haml
-  elsif ext == 'md' || ext == 'markdown'
-    filter :erb
-    filter :rdiscount
-  elsif ext == 'html'
-  else
-    raise "Filter is not configured for #{item.identifier} in Rules file."
-  end
-
-  #use layouts with .html extension or layout specified in meta
-  item[:layout] = "none" unless item[:layout] || File.extname(route_path(item)) == '.html'
-
+  select_filter(item)
   layout 'default' unless item[:layout] == "none"
+end
+
+route '*', :rep => :naked do
+  route_naked(item)
 end
 
 route '*' do
