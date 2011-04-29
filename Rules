@@ -5,30 +5,36 @@ require 'compass'
 
 Compass.add_project_configuration('compass.rb')
 
-compile '/assets/stylesheets/modules/*/' do
-  # don’t compile modules
-end
-compile '/assets/stylesheets/partials/*/' do
-  # don’t compile partials
-end
-route '/assets/stylesheets/modules/*/' do
-  # don’t compile modules
-end
-route '/assets/stylesheets/partials/*/' do
-  # don’t compile partials
-end
+## Compilers and Routes that should match but not do anything
+compile('/assets/stylesheets/modules/*/') { }
+route('/assets/stylesheets/modules/*/') { }
+compile('/assets/stylesheets/partials/*/') { }
+route('/assets/stylesheets/partials/*/') { }
+compile('/assets/javascript/*/') { }
+compile('/favicon') { }
+compile('/assets/images/*/') { }
+
 compile '/assets/stylesheets/style' do
   filter :sass, Compass.sass_engine_options
 end
 
-compile '/assets/javascript/*/' do
-end
-
-compile '/favicon' do
-end
-
-compile '/assets/images/*/' do
-end
+#### This is how you can compile to many files using reps
+#compile '/batches/29/', :rep => :full do
+#  filter :haml
+#  puts 'bar'
+#  puts item.path
+#end
+#
+#
+#compile '/batches/29/' do
+#  filter :haml
+#  puts ':default'
+#  puts item.path
+#end
+#
+#route '*', :rep => :full do
+#  new file name here
+#end
 
 compile '*' do
   # item[:extension] returns 'html.erb' for multi-dotted filename
